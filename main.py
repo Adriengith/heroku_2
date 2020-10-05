@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 import sqlite3
+import json
 # import json
 # from fastapi.middleware.cors import CORSMiddleware
 
@@ -36,16 +37,8 @@ async def one_game ():
 
 @app.get("/test")
 async def test():
-    return [{
-        name: 'Share',
-        data: [
-            { name: 'Chrome', y: 551.41 },
-            { name: 'Internet Explorer', y: 11.84 },
-            { name: 'Firefox', y: 10.85 },
-            { name: 'Edge', y: 4.67 },
-            { name: 'Safari', y: 4.18 },
-            { name: 'Other', y: 7.05 }
-        ]
+    return { 'name': 54}
+
 
 @app.get("/games/count/pourcent")
 async def pourcent_platform():
