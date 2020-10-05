@@ -36,7 +36,16 @@ async def one_game ():
 
 @app.get("/test")
 async def test():
-    return {"id": "foo", "value": "there goes my hero"}
+    return [{
+        name: 'Share',
+        data: [
+            { name: 'Chrome', y: 551.41 },
+            { name: 'Internet Explorer', y: 11.84 },
+            { name: 'Firefox', y: 10.85 },
+            { name: 'Edge', y: 4.67 },
+            { name: 'Safari', y: 4.18 },
+            { name: 'Other', y: 7.05 }
+        ]
 
 @app.get("/games/count/pourcent")
 async def pourcent_platform():
