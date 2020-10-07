@@ -5,7 +5,9 @@ import json
 
 #JSON RESPONSE
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+
+# //Access-Control-Allow-Headers: *
+# //Access-Control-Allow-Headers: x-requested-with
 
 # import json
 # from fastapi.middleware.cors import CORSMiddleware
@@ -13,6 +15,8 @@ from pydantic import BaseModel
 conn = sqlite3.connect('scrap_game.db')
 c = conn.cursor()
 app = FastAPI()
+headers = {'Access-Control-Allow-Origin':'*'}
+
 
 # origins = [
 #     "http://localhost.tiangolo.com",
@@ -42,7 +46,7 @@ async def one_game ():
 
 @app.get("/test")
 async def test():
-    return JSONResponse(content=[{"month":1,"number_of_films":120},{"month":2,"number_of_films":103},{"month":3,"number_of_films":101},{"month":4,"number_of_films":74},{"month":5,"number_of_films":65},{"month":6,"number_of_films":88},{"month":7,"number_of_films":89},{"month":8,"number_of_films":110},{"month":9,"number_of_films":166},{"month":10,"number_of_films":149},{"month":11,"number_of_films":114},{"month":12,"number_of_films":86}])
+    return JSONResponse(content=[{"name":"PS4","pourcent":39.04109589041096},{"name":"PS5","pourcent":3.4246575342465753},{"name":"SWI","pourcent":32.87671232876712},{"name":"XBX","pourcent":0.684931506849315},{"name":"XONE","pourcent":23.972602739726025}], headers=headers)
 
 
 @app.get("/games/count/pourcent")
