@@ -2,6 +2,11 @@ from fastapi import FastAPI
 import uvicorn
 import sqlite3
 import json
+
+#JSON RESPONSE
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel
+
 # import json
 # from fastapi.middleware.cors import CORSMiddleware
 
@@ -37,7 +42,7 @@ async def one_game ():
 
 @app.get("/test")
 async def test():
-    return [{"month":1,"number_of_films":120},{"month":2,"number_of_films":103},{"month":3,"number_of_films":101},{"month":4,"number_of_films":74},{"month":5,"number_of_films":65},{"month":6,"number_of_films":88},{"month":7,"number_of_films":89},{"month":8,"number_of_films":110},{"month":9,"number_of_films":166},{"month":10,"number_of_films":149},{"month":11,"number_of_films":114},{"month":12,"number_of_films":86}]
+    return JSONResponse(content=[{"month":1,"number_of_films":120},{"month":2,"number_of_films":103},{"month":3,"number_of_films":101},{"month":4,"number_of_films":74},{"month":5,"number_of_films":65},{"month":6,"number_of_films":88},{"month":7,"number_of_films":89},{"month":8,"number_of_films":110},{"month":9,"number_of_films":166},{"month":10,"number_of_films":149},{"month":11,"number_of_films":114},{"month":12,"number_of_films":86}])
 
 
 @app.get("/games/count/pourcent")
