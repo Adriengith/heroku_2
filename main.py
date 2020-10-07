@@ -37,7 +37,7 @@ async def one_game ():
 
 @app.get("/test")
 async def test():
-    return { 'value1': 15, 'value2': 30, 'value3': 50, 'value14': 80 }
+    return [{'month':1,'number_of_films':30},{'month':2,'number_of_films':80}]
 
 
 @app.get("/games/count/pourcent")
